@@ -2,9 +2,13 @@
 #include <QPaintEvent>
 #include <QPainter>
 
-RenderArea::RenderArea(QWidget *parent) : QWidget(parent)
+
+RenderArea::RenderArea(QWidget *parent) :
+    QWidget(parent),
+    mBackgroundColor (0, 0, 255),
+    mShapeColor (255, 150, 255)
+
 {
-this->setStyleSheet ("background-color:blue;");
 }
 QSize RenderArea:: minimumSizeHint () const
 {
@@ -17,8 +21,29 @@ QSize RenderArea:: sizeHint () const
 }
 void  RenderArea::paintEvent (QPaintEvent *event)
 {
+    Q_UNUSED(event);
  QPainter painter(this);
- painter.setBrush(QColor (0, 0, 255));
+
  painter.setRenderHint( QPainter::Antialiasing, true);
+
+ switch (mShape) {
+ case Astroid:mBackgroundColor=Qt::red;
+ break;
+    case Cycloid:mBackgroundColor=Qt::green;
+     break;
+ case HuygensCycloid:mBackgroundColor=Qt::blue;
+     break;
+ case HypoCycloid:mBackgroundColor=Qt::yellow;
+     break;
+   default:
+     break;
+ }
+  painter.setBrush(mBackgroundColor);
+   painter.setPen(mShapeColor);
+ //draw area
  painter.drawRect(this->rect());
+ painter.drawLine(this->rect().topLeft(), this->rect().bottomRight());
+
+
+
 }
