@@ -24,7 +24,9 @@ private slots:
 
     void on_btnHypo_clicked();
 
-    void on_btnCicloid_clicked();
+    void on_btn_futurecave_clicked();
+
+    void on_btnLine_clicked();
 
 private:
     Ui::MainWindow *ui;

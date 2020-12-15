@@ -3,10 +3,11 @@
 #include <QPainter>
 #include <math.h>
 
+
 RenderArea::RenderArea(QWidget *parent) :
     QWidget(parent),
     mBackgroundColor (0, 0, 255),
-    mShapeColor (255, 150, 255),
+    mShapeColor (255, 150, 0),
     mShape(Astroid)
 {
     on_shape_changed();
@@ -51,8 +52,13 @@ void RenderArea::on_shape_changed (){
      mintervalLength =4* M_PI;
      mStepCount=256;
         break;
+
       default:
         break;
+    case Line:
+        mScale=100;
+        mintervalLength =1;
+        mStepCount=128;
     }
 }
 QPointF RenderArea::compute(float t){
@@ -74,7 +80,10 @@ return compute_huygens_cycloid(t);
         break;
     case FutureCurves:
 return compute_future_curves(t);
-        break;
+
+    case Line:
+        return compute_Line(t);
+
       default:
         break;
     }
@@ -129,8 +138,17 @@ QPointF RenderArea::compute_future_curves(float t){
                 //7*(3*sin(t)+sin(3*t))ဆိုရင်လက်ကိုင်ပဝါစကိုလေးဖက်လေးလံကနေစွဲထားတဲ့ပုံစံ
                 //        7*(3*cos(t)-cos(3*t)),
                // 7*(3*cos(t)+cos(3*t))ဆိုရင်Sစောင်းစောင်းလေး
+                //  7*(3*cos(t)+cos(3*t)),
+                //7*(3*sin(t)-cos(3*t))ဆိုရင်မှန်ဘီးလူး(ပုံတော့သိပ်မကျဘူး)
                  );
 }
+QPointF RenderArea::compute_Line(float t){
+Q_UNUSED(t);
+return QPointF(1-t,1-t);
+
+}
+
+
 void  RenderArea::paintEvent (QPaintEvent *event)
 {
     Q_UNUSED(event);
@@ -151,7 +169,6 @@ for(float t=0;t<mintervalLength;t+=step){
    QPoint pixel;
    pixel.setX(point.x() *mScale+center.x());
    pixel.setY(point.y() *mScale+center.y());
-   painter.drawPoint(pixel);
-
+ painter.drawPoint(pixel);
 }
 }
