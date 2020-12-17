@@ -15,11 +15,11 @@ RenderArea::RenderArea(QWidget *parent) :
 QSize RenderArea:: minimumSizeHint () const
 {
 
-    return QSize(100, 100);
+    return QSize(400, 400);
 }
 QSize RenderArea:: sizeHint () const
 {
-    return QSize(400, 200);
+    return QSize(400, 400);
 }
 void RenderArea::on_shape_changed (){
     switch(mShape){
@@ -162,13 +162,19 @@ void  RenderArea::paintEvent (QPaintEvent *event)
    painter.drawRect(this->rect());
    QPoint center=this->rect().center();
  //draw area
-
+QPointF prevPoint =compute(0);
+QPoint prevPixel;
+prevPixel.setX(prevPoint.x() *mScale+center.x());
+prevPixel.setY(prevPoint.y() *mScale+center.y());
   float step=mintervalLength/mStepCount;
 for(float t=0;t<mintervalLength;t+=step){
    QPointF point=compute(t);
    QPoint pixel;
-   pixel.setX(point.x() *mScale+center.x());
-   pixel.setY(point.y() *mScale+center.y());
- painter.drawPoint(pixel);
+
+  pixel.setX(point.x() *mScale+center.x());
+  pixel.setY(point.y() *mScale+center.y());
+
+painter.drawLine(pixel, prevPixel);
+prevPixel=pixel;
 }
 }
