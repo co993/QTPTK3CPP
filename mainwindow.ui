@@ -77,6 +77,19 @@
     </item>
     <item row="0" column="1">
      <layout class="QGridLayout" name="gridLayout">
+      <item row="14" column="0">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item row="7" column="0">
        <widget class="QPushButton" name="btnWaterLily">
         <property name="text">
@@ -84,14 +97,28 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="btn_circle">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="btnHuygens">
         <property name="text">
-         <string>circle</string>
+         <string>Huygens</string>
         </property>
        </widget>
       </item>
-      <item row="9" column="0">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="btCicloid">
+        <property name="text">
+         <string>Cicloid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="btnLine">
+        <property name="text">
+         <string>Line</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label">
@@ -133,61 +160,7 @@
         </item>
        </layout>
       </item>
-      <item row="11" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="maximumSize">
-           <size>
-            <width>60</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>intervalLength</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QDoubleSpinBox" name="SpinInterval">
-          <property name="maximumSize">
-           <size>
-            <width>60</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="maximum">
-           <double>100.000000000000000</double>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="6" column="0">
-       <widget class="QPushButton" name="btnellipe">
-        <property name="text">
-         <string>ellipe</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="btnHuygens">
-        <property name="text">
-         <string>Huygens</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="btnLine">
-        <property name="text">
-         <string>Line</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
+      <item row="12" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QLabel" name="label_3">
@@ -226,6 +199,27 @@
         </item>
        </layout>
       </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="btnStarFish">
+        <property name="text">
+         <string>StarFish</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QPushButton" name="btnCloud">
+        <property name="text">
+         <string>Cloud1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="btn_circle">
+        <property name="text">
+         <string>circle</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="btnAstroid">
         <property name="text">
@@ -233,12 +227,45 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="btCicloid">
+      <item row="6" column="0">
+       <widget class="QPushButton" name="btnellipe">
         <property name="text">
-         <string>Cicloid</string>
+         <string>ellipe</string>
         </property>
        </widget>
+      </item>
+      <item row="13" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>intervalLength</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="SpinInterval">
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="maximum">
+           <double>100.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item row="3" column="0">
        <widget class="QPushButton" name="btnHypo">
@@ -247,23 +274,10 @@
         </property>
        </widget>
       </item>
-      <item row="12" column="0">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="8" column="0">
-       <widget class="QPushButton" name="btnStarFish">
+      <item row="10" column="0">
+       <widget class="QPushButton" name="btnCloud2">
         <property name="text">
-         <string>StarFish</string>
+         <string>Cloud2</string>
         </property>
        </widget>
       </item>

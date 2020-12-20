@@ -55,28 +55,37 @@ void RenderArea::on_shape_changed (){
      mintervalLength =2* M_PI;
      mStepCount=256;
         break;
-
-      default:
-        break;
     case Line:
         mScale=100;
         mintervalLength =2;
         mStepCount=128;
-
+        break;
     case ellipe:
         mScale=75;
         mintervalLength =2*M_PI;
         mStepCount=256;
-
+       break;
     case Waterlily:
         mScale=10;
         mintervalLength =12*M_PI;
         mStepCount=512;
-
+        break;
     case StarFish:
         mScale=25;
         mintervalLength =6*M_PI;
         mStepCount=256;
+        break;
+    case Cloud1:
+        mScale=10;
+        mintervalLength=28*M_PI;
+        mStepCount=128;
+        break;
+     case Cloud2:
+        mScale=10;
+        mintervalLength=28*M_PI;
+        mStepCount=128;
+    default:
+      break;
     }
 }
 QPointF RenderArea::compute(float t){
@@ -105,6 +114,10 @@ return compute_circle(t);
         return compute_Waterlily(t);
     case StarFish:
         return compute_StarFish(t);
+    case Cloud1:
+        return compute_cloud1(t);
+     case Cloud2:
+         return compute_cloud2(t);
       default:
         break;
     }
@@ -215,6 +228,27 @@ QPointF RenderArea::compute_StarFish(float t){
     (R-r)*sin(t)-d*sin(t*(R-r)/r)
 
                 );
+}
+QPointF RenderArea::compute_cloud1(float t){
+    Q_UNUSED(t);
+return compute_cloud_with_sign(t,-1);
+
+
+}
+QPointF RenderArea::compute_cloud2(float t){
+    Q_UNUSED(t);
+   return compute_cloud_with_sign(t,1);
+}
+QPointF RenderArea::compute_cloud_with_sign(float t,float sign){
+    Q_UNUSED(t);
+    float a=14;
+    float b=1;
+
+    return QPointF(
+    (a+b)*cos(t*b/a)+sign*b*cos(t*(a+b)/a),
+    (a+b)*sin(t*b/a)-b*sin(t*(a+b)/a)
+                );
+
 }
 
 void  RenderArea::paintEvent (QPaintEvent *event)
